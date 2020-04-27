@@ -8,7 +8,7 @@ const api = {
 
 class App extends React.Component {
   state = {
-    temperature: '',
+    temperature: null,
     humidity: '',
     location: ''
   }
@@ -30,20 +30,29 @@ class App extends React.Component {
             temperature,
             humidity
           })
-        });
+        })
+        .catch(err => {
+          alert(err)
+        })
        
   }
 
   render() {
     
     return (
-      <div className="app" >
-        <div className='container center'>
+
+<div className="app" >
+  <section className='showcase'>
+    <div className="video-container">
+			<video src="https://traversymedia.com/downloads/video.mov" autoPlay muted loop></video>
+    </div>
+    <div className='content'>
           <h1>WEATHER API</h1>
-            
-      <WeatherInput submit={this.handleSubmit} change={this.handleChange} value={this.state.location}/>
-      <WeatherBox temperature={this.state.temperature} humidity={this.state.humidity} />
-        </div>
+          <WeatherInput submit={this.handleSubmit} change={this.handleChange} value={this.state.location}/>
+          <WeatherBox temperature={this.state.temperature} humidity={this.state.humidity} />
+    </div>
+  </section>      
+     
       </div>
     );
   }
