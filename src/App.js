@@ -10,7 +10,10 @@ class App extends React.Component {
   state = {
     temperature: null,
     humidity: '',
-    location: ''
+    location: '',
+    description: '',
+    image: '',
+    apiname: ''
   }
 
   handleChange = (e) =>{
@@ -24,11 +27,19 @@ class App extends React.Component {
     fetch(`${api.base}weather?q=${this.state.location}&units=metric&APPID=${api.key}`)
         .then(res => res.json())
         .then(result => {
+          console.log(result.weather[0].icon)
+
           const temperature = result.main.temp
           const humidity = result.main.humidity
+          const apiname = result.name
+          const description = result.weather[0].main
+          const image = result.weather[0].icon
           this.setState({
             temperature,
-            humidity
+            humidity,
+            apiname,
+            description,
+            image
           })
         })
         .catch(err => {
@@ -42,14 +53,23 @@ class App extends React.Component {
     return (
 
 <div className="app" >
+
   <section className='showcase'>
     <div className="video-container">
 			<video src="https://traversymedia.com/downloads/video.mov" autoPlay muted loop></video>
     </div>
+
     <div className='content'>
-          <h1>WEATHER API</h1>
+    <h1>WEATHER API</h1>
+
           <WeatherInput submit={this.handleSubmit} change={this.handleChange} value={this.state.location}/>
-          <WeatherBox temperature={this.state.temperature} humidity={this.state.humidity} />
+          <WeatherBox 
+            temperature={this.state.temperature} 
+            humidity={this.state.humidity} 
+            city={this.state.apiname}
+            description={this.state.description}
+            image={this.state.image}
+          />
     </div>
   </section>      
      

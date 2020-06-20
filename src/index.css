@@ -22,6 +22,21 @@ h1 {
 	font-size: 60px;
 	line-height: 1.2;
 	margin-bottom: 15px;
+	color: aliceblue;
+}
+
+h2{
+	margin: 10px 0;
+}
+
+.locationinput{
+	width: 80%;
+	border: none;
+	background-color: rgb(114, 156, 156);
+	height: 30px;
+	text-align: center;
+	border-radius: 20px;
+	font-size: 1.3em;
 }
 
 .showcase {
@@ -70,4 +85,49 @@ h1 {
 	z-index: 2;
 }
 
+
+@media screen and (min-width: 620px){
+  
+	h1{
+		font-size: 100px;
+	}
+	h2{
+		font-size: 37px;
+	}
+	.locationinput{
+		height: 50px;
+		font-size: 1.6em;
+	}
+    
+  }
+
+  @media screen and (min-width: 960px){
+  
+	h1{
+		font-size: 100px;
+	}
+	h2{
+		font-size: 65px;
+	}
+	.locationinput{
+		height: 60px;
+		font-size: 1.7em;
+	}
+    
+  }
+
+  @media screen and (min-width: 1200px){
+  
+	h1{
+		font-size: 80px;
+	}
+	h2{
+		font-size: 50px;
+	}
+	.locationinput{
+		height: 40px;
+		font-size: 2em;
+	}
+    
+  }
  

@@ -4,8 +4,14 @@ const  WeatherInput = ({submit, change,  value})  => {
     return (
         <div>
               <form onSubmit={submit}>
-                <input  id='wt' type='text' className="validate" onChange={change} value={value} />
-                <label htmlFor='wt'>Enter a location</label>
+                <input  
+                  id='wt' 
+                  type='text' 
+                  className="locationinput" 
+                  onChange={change} 
+                  value={value} 
+                  placeholder='Enter location'
+                />
               </form>
         </div>
     )
